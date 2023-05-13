@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th class="allCheck"><input type="checkbox" name="" id="checkAll"><span class="all">全选</span></th>
+            <th>商品</th>
+            <th>商家</th>
+            <th>价格</th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" name="" class="ck"></th>
+            <th>小米手机</th>
+            <th>小米</th>
+            <th>1999</th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" name="" class="ck"></th>
+            <th>小米电视</th>
+            <th>小米</th>
+            <th>1999</th>
+        </tr>
+    </table>
+    <script>
+        let all = document.querySelector('#checkAll');
+        let cks = document.querySelectorAll('.ck');
+        let select = document.querySelector('.all');
+        all.addEventListener('click',()=>{
+            if(all.checked){
+                select.innerHTML = '取消';
+            }else{
+                select.innerHTML = '全选';
+            }
+            /* if(this.checked == true){
+                this.checked = false;
+                for(let i = 0; i < cks.length; i++){
+                    cks[i].checked = false;
+                }
+            }else{
+                this.checked = true;
+                for(let i = 0; i < cks.length; i++){
+                    cks[i].checked = true;
+                }
+            } */
+            for(let i = 0; i < cks.length; i++){
+                    cks[i].checked = all.checked;
+            }
+            
+        });
+        //小按钮的逻辑
+        for(let j = 0; j < cks.length; j++){
+            cks[j].addEventListener('click',()=>{
+                for(let i=0;i<cks.length;i++){
+                    if(!cks[i].checked){
+                        select.innerHTML = '全选';
+                        all.checked = false;
+                        return;
+                    }
+                }
+                select.innerHTML = '取消';
+                all.checked = true;
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 80px;
+            width: 400px;
+            text-align: center;
+            background-color:aquamarine;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        function getTime(){
+            let date = new Date(); //当前时间
+            let year = date.getFullYear();
+            let month = date.getMonth()+1;
+            let day = date.getDate();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let div = document.querySelector('div');
+            div.innerHTML = `${year}年${month}月${day}日 ${hour}:${min}:${sec}`;
+        }
+        getTime();
+        setInterval(getTime,1000);
+        
+        
+        let datesp = new Date('2021-8-29 18:30:00');  //指定时间
+        console.log(datesp);
+        console.log(+new Date('2021-8-29 18:30:00')) //指定时间戳
+    </script>
+</body>
+</html>

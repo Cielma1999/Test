@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            height: 300px;
+            width: 150px;
+            background-color: aqua;
+        }
+        .son{
+            height: 100px;
+            width: 50px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    
+    <script>
+        //只有父子的事件类型一样才会触发冒泡，加上true就是按捕获顺序触发
+        let fa = document.querySelector('.father');
+        let son = document.querySelector('.son');
+        fa.addEventListener('click',(e)=>{
+            alert('爸爸');
+            //e.stopPropagation();
+        });
+
+        
+        son.addEventListener('click',(e)=>{
+            alert('儿子');
+            e.stopPropagation();//阻止冒泡
+        });
+
+        /* 都得加上true才是捕获顺序
+        fa.addEventListener('click',()=>{
+            alert('爸爸');
+        }，true); 
+        son.addEventListener('click',()=>{
+            alert('儿子');
+        },true);
+        
+        */
+    </script>
+</body>
+</html>

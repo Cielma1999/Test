@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result-list{
+            display: none;
+        }
+        .result-list a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            color: #424242;
+            text-decoration: none;
+
+        }
+        .result-list a:hover{
+            background-color: aquamarine;
+        }
+        .search{
+            border: 1px solid red;
+        }
+        input:focus{
+            outline: none;
+        }
+        /*去掉浏览器自带的focus效果
+        input:focus{
+            outline: none;
+        }
+        */
+    </style>
+</head>
+<body>
+    <input  type="search" name="" id="">
+    <ul class='result-list'>
+        <li><a href="">全部商品</a></li>
+        <li><a href="">小米11</a></li>
+        <li><a href="">小米10s</a></li>
+        <li><a href="">小米笔记本</a></li>
+        <li><a href="">空调</a></li>
+        
+    </ul>
+    <script>
+        let search = document.querySelector('input'); 
+        let list = document.querySelector('.result-list');
+        search.addEventListener('focus',()=>{
+            //显示下拉菜单，文本框变色
+            search.classList.add('search');
+            list.style.display = 'block';
+        });
+        //失去焦点
+        search.addEventListener('blur',()=>{
+            //隐藏下拉菜单，文本框变色
+            search.classList.remove('search');
+            list.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

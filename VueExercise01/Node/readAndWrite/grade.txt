@@ -1,0 +1,3 @@
+Ciel:80
+Dell:90
+Luke:100
